@@ -4,6 +4,7 @@
   top: 0px;
   z-index: 1;
 }
+
 a {
   color: #0090d3;
   text-decoration: none;
@@ -37,12 +38,13 @@ a {
 }
 
 .contact {
-  box-shadow: 5px 10px 28px 0px #000000;
-
+  box-shadow: 0px 0px 10px 0px #000000;
 }
 .contact a {
-  color: #fff; 
+  color: white; 
   font-weight: 800;
+  z-index: 5;
+  font-size: 14px;
 }
 .contact:before {
   position: absolute;
@@ -52,14 +54,15 @@ a {
   content: ' ';
   height: 100%;
   border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid gray;
   opacity: .2;
 }
 
 .contact-list {
   display: flex; 
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
+  align-content: center;
 }
 
 .contact-list a {
@@ -74,25 +77,19 @@ a {
 }
 
 .skills {
-  background: rgba(0, 0, 0, 0.4)
+  background: rgba(0, 0, 0, 0.4);
+  padding-bottom: 100px;
 }
-.skills:before {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  content: ' ';
-  height: 100%;
-  border-top: 1px solid white;
-  opacity: .2;
-}
+
 .portfolio {
   padding-top: 15px;
   box-sizing: border-box;
   z-index: 2;
   position: relative;
   padding: 10px;
-  background-image: url("./img/diag.png");
+  border-top: 1px solid #5d5d5d;
+  background-image: linear-gradient(to right top, #252525, #272727, #2a2a2a, #2c2c2c, #2f2f2f, #2e2e2e, #2d2d2d, #2c2c2c, #282828, #242424, #202020, #1c1c1c);
+  box-shadow: 0px 0px 10px 0px #000000;
 }
 h2 {
   font-size: 3rem;
@@ -106,6 +103,7 @@ h2 {
 
   grid-gap: 15px;
   justify-content: center;
+  margin-top: 100px;
 }
 .proj .imggallery {
   display: flex;
