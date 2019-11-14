@@ -14,11 +14,25 @@ a {
   box-sizing: border-box;
   margin: 0;
   z-index: 2;
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(130px);
   backdrop-filter: blur(130px);
   font-size: 50px;
   padding:  15%;
 }
+
+@supports (-moz-appearance:none) {
+  .container {
+    background: rgba(0, 0, 0, 0.8)
+  }
+}
+
+.hideme {
+  height: 0px;
+  overflow: hidden;
+  position: fixed;
+
+}
+
 .container h1 {
   text-transform: uppercase;
   margin: 0px;

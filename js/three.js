@@ -41,12 +41,17 @@
     scene.add(lightthree)
 
 let istrue;
-
-
+var isFirefox = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+console.log(isFirefox)
   var rerender = function () {
     //60 frames per second loop
     requestAnimationFrame(rerender);
-    sphere.rotation.x += .0003;
+    if (isFirefox) {
+        sphere.rotation.x += .0002;
+    } else {
+      sphere.rotation.x += .00002;
+    }
+
 
  
     if (lightthree.intensity <= 0) {
