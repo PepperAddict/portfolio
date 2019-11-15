@@ -1,7 +1,7 @@
 (function () {
 
   let scene = new THREE.Scene();
-  let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+  let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 500)
   camera.position.set(0, 0, 15); //side up/down zoom
   let renderer = new THREE.WebGLRenderer({antialias: true});
 
@@ -65,11 +65,9 @@ console.log(isFirefox)
       lightthree.intensity += .001
     }
 
-
     //apply scene and camera
     renderer.render(scene, camera)
   }
   rerender();
-  
 
 }())
