@@ -14,8 +14,8 @@ a {
   box-sizing: border-box;
   margin: 0;
   z-index: 2;
-  -webkit-backdrop-filter: blur(130px);
-  backdrop-filter: blur(130px);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   font-size: 50px;
   padding:  15%;
 }
