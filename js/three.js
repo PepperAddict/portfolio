@@ -58,33 +58,34 @@
 
   let prevTimestamp = null;
   let rotSpeed = 0.000002;
-  let intSpeed = 0.000002;
+  let intSpeed = 0.00001;
 
   var rerender = function (timestamp) {
     //60 frames per second loop
 
     var elapsedTime;
-    if (!prevTimestamp) {
-      prevTimestamp = timestamp;
-    }
+    if (!prevTimestamp) prevTimestamp = timestamp;
+    
     elapsedTime = timestamp - prevTimestamp;
     prevTimestamp = timestamp;
     sphere.rotation.x += rotSpeed * elapsedTime;
+    sphere.rotation.y += rotSpeed * elapsedTime;
 
-    if (lightthree.intensity <= 0) {
-      istrue = false;
-    } else if (lightthree.intensity >= 0.5) {
-      istrue = true;
-    }
+    //rotation limit
+    if (sphere.rotation.x > 360) sphere.rotation.x - 360;
+    if (sphere.rotation.y > 360) sphere.rotation.x - 360
+
+    // lightthree light intensity limit
+    if (lightthree.intensity <= 0) istrue = false;
+    if (lightthree.intensity >= 0.3) istrue = true;
+
+    //animating lightthree to turn on or off
     if (istrue) {
       lightthree.intensity -= intSpeed * elapsedTime;
     } else {
       lightthree.intensity += intSpeed * elapsedTime;
     }
-    if (lightthree.intensity > 1.0)
-      lightthree.intensity = 1.0;
-    if (lightthree.intensity < 0.0)
-      lightthree.intensity = 0.0;
+
 
     //apply scene and camera
     renderer.render(scene, camera);
