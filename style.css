@@ -10,6 +10,7 @@ a {
   color: #0090d3;
   text-decoration: none;
 }
+
 .container {
   position: relative;
   box-sizing: border-box;
@@ -90,6 +91,9 @@ a {
 .contact-list img {
   height: 100%;
   object-fit: contain;
+}
+.contact-list img:hover {
+  transform: scale(1.5, 1.5)
 }
 
 .skills {
