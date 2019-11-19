@@ -29,9 +29,9 @@
   var material = new THREE.MeshPhysicalMaterial({
     color: 0xFFFFFF,
     roughness: 0.5,
-    reflectivity: 0.6,
+    reflectivity: 0,
     clearcoat: 1,
-    clearcoatRoughness: 0,
+    clearcoatRoughness: 0.5,
     flatShading: true
   });
 
@@ -76,15 +76,13 @@
     if (sphere.rotation.y > 360) sphere.rotation.x - 360
 
     // lightthree light intensity limit
-    if (lightthree.intensity <= 0) istrue = false;
+    if (lightthree.intensity < 0) istrue = false;
     if (lightthree.intensity >= 0.3) istrue = true;
 
     //animating lightthree to turn on or off
-    if (istrue) {
-      lightthree.intensity -= intSpeed * elapsedTime;
-    } else {
-      lightthree.intensity += intSpeed * elapsedTime;
-    }
+    if (istrue) lightthree.intensity -= intSpeed * elapsedTime;
+    if (!istrue) lightthree.intensity += intSpeed * elapsedTime;
+    
 
 
     //apply scene and camera
