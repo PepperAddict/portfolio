@@ -58,7 +58,7 @@
 
   let prevTimestamp = null;
   let rotSpeed = 0.000002;
-  let intSpeed = 0.00001;
+  let intSpeed = 0.001;
 
   var rerender = function (timestamp) {
     //60 frames per second loop
@@ -74,15 +74,6 @@
     //rotation limit
     if (sphere.rotation.x > 360) sphere.rotation.x - 360;
     if (sphere.rotation.y > 360) sphere.rotation.x - 360
-
-    // lightthree light intensity limit
-    if (lightthree.intensity < 0) istrue = false;
-    if (lightthree.intensity >= 0.3) istrue = true;
-
-    //animating lightthree to turn on or off
-    if (istrue) lightthree.intensity -= intSpeed * elapsedTime;
-    if (!istrue) lightthree.intensity += intSpeed * elapsedTime;
-    
 
 
     //apply scene and camera
