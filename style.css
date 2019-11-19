@@ -22,7 +22,7 @@ li {
   backdrop-filter: blur(100px);
   font-size: 50px;
   padding:  15%;
-  height: 80vh;
+  height: 70vh;
 }
 
 @supports (-moz-appearance:none) {
@@ -55,7 +55,9 @@ li {
   position: relative;
   padding: 20px;
 }
-
+.contact-container {
+  text-align: center;
+}
 .contact {
   box-shadow: 0px 0px 10px 0px #000000;
   display: flex;
@@ -123,7 +125,7 @@ li {
   box-shadow: 0px 0px 10px 0px #000000;
 }
 
-.portfolio-container, .skills-container {
+.portfolio-container, .skills-container, .contact-container {
   max-width: 900px;
   margin: auto;
 }

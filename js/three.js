@@ -48,7 +48,7 @@
   lighttwo.position.set(35, 30, 25);
   scene.add(lighttwo)
 
-  var lightthree = new THREE.DirectionalLight(0xffc000, 0.5);
+  var lightthree = new THREE.DirectionalLight(0xF97400, 0.3);
   lightthree.position.set(0, -15, 15);
   scene.add(lightthree)
 
