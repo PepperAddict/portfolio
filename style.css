@@ -129,6 +129,23 @@ li {
   max-width: 900px;
   margin: auto;
 }
+.threed-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 5px;
+}
+.threed-gallery img {
+  width: 100%;
+object-fit: contain;
+height: 100%;
+}
+.animation-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.animation-gallery iframe {
+  width: 250px;
+}
 
 h2 {
   font-size: 2rem;
@@ -207,4 +224,31 @@ h2 {
   padding-right: 10px;
 
   margin-right: 50px;
+}
+
+.hearts1
+{
+  display: flex;
+  height: 40px;
+  width: 40px;
+  background-image: url('/img/interactives/hearts.png');
+  background-size: cover;
+}
+.hearts2
+{
+  display: flex;
+  height: 40px;
+  width: 40px;
+  background-image: url('/img/interactives/heart4.png');
+  background-size: cover;
+}
+
+.hearts1:hover, .hearts2:hover {
+  animation: sprite .7s steps(49) forwards infinite;
+}
+
+@keyframes sprite {
+  100% {
+      background-position: -1960px;
+  }
 }
