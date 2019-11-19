@@ -10,14 +10,16 @@ a {
   color: #0090d3;
   text-decoration: none;
 }
-
+li {
+  line-height: 1.5rem;
+}
 .container {
   position: relative;
   box-sizing: border-box;
   margin: 0;
   z-index: 2;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
   font-size: 50px;
   padding:  15%;
   height: 80vh;
@@ -56,6 +58,8 @@ a {
 
 .contact {
   box-shadow: 0px 0px 10px 0px #000000;
+  display: flex;
+  flex-wrap: wrap;
 }
 .contact a {
   color: white; 
@@ -80,6 +84,7 @@ a {
   flex-wrap: wrap;
   justify-content: start;
   align-content: center;
+  margin: 0 30px;
 }
 
 .contact-list a {
@@ -87,10 +92,14 @@ a {
   grid-template-rows: 40px auto;
   justify-items: center;
   grid-gap: 10px;
+  word-break: break-word;
+  width: 80px;
+  margin-right: 20px;
 }
 .contact-list img {
   height: 100%;
-  object-fit: contain;
+  max-width: 40px;
+  object-fit: cover;
   transition: .2s;
 }
 .contact-list img:hover {
@@ -113,8 +122,14 @@ a {
   background: rgba(26, 26, 26, 0.9);
   box-shadow: 0px 0px 10px 0px #000000;
 }
+
+.portfolio-container, .skills-container {
+  max-width: 900px;
+  margin: auto;
+}
+
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   padding: 10px 0px;
   text-transform: uppercase;
   letter-spacing: 1rem;
@@ -132,6 +147,8 @@ h2 {
   grid-gap: 10px;
   width: 100%;
   overflow-x:scroll;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
 }
 
 .imggallery::-webkit-scrollbar {
@@ -168,8 +185,19 @@ h2 {
 .skills li {
   display: inline-block;
   margin-right: 5px;
-  border: 1px solid white;
   padding: 5px;
+  margin: 5px;
+  position: relative;
+}
+.skills li::before {
+  border: 1px solid white;
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  opacity: .2;
 }
 .skills h3 {
   display: inline-block;
