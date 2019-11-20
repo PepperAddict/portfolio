@@ -238,13 +238,18 @@ h2 {
   height: 250px;
   object-fit: cover;
   box-sizing: border-box;
-  padding: 5px;
-  background: white;
   transition: .5s;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .proj .desc h4 {
-  margin-top: -20px;
+  margin-top: -10px;
+}
+.proj .desc ul {
+  border-top: 1px solid #474747;
+  border-bottom: 1px solid #474747;
+  width: 100%;
+  padding: 15px;
+
 }
 
 .skills li {
