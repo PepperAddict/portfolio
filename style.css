@@ -1,3 +1,8 @@
+:root {
+  --color: #0090d3;
+  --darkgray: #1c1c1c;
+}
+
 
 #cover-me {
   position: fixed;
@@ -6,28 +11,40 @@
   height: 100%;
 }
 
+body {
+  background-image: linear-gradient(to right, #a10084, #8c3ba4, #6d57bc, #466dc9, #007fce);
+  position: relative;
+}
+
 a {
-  color: #0090d3;
+  color: var(--color);
   text-decoration: none;
 }
+
 li {
   line-height: 1.5rem;
 }
+
 .animation-h3 {
   display: flex;
 }
+
 nav {
   z-index: 10;
   position: fixed;
   top: 0px;
-  right: 0px;
-  height: 40px;
-  width: 100%;
-  background: #1c1c1c;
-  display: flex;
+  background: var(--darkgray);
+  display: block;
   justify-content: end;
+  flex-wrap: wrap;
+  width: 100%;
   text-align: right;
+  min-height: 50px;
+  line-height: 50px;
+  box-sizing: border-box;
+  margin: 0px;
 }
+
 nav a {
   margin: 10px 10px;
   color: white;
@@ -35,31 +52,13 @@ nav a {
   position: relative;
   font-weight: 600;
   color: #dddddd;
-}
-
-nav a::before {
-  position: absolute;
-  content: ' ';
-  top: 0px;
-  left: 0px;
-  /* border-bottom: 3px solid #1c1c1c; */
-  width: 100%;
-  height: 100%;
-
-  padding: 5px;
-  transition: .9s;
-  width: 1px;
 
 }
-
-nav a:hover::before {
-  opacity: 1;
-  border-bottom: 13px solid #4d4d4d;
-  transition: .9s;
-  width: 100vw;
+nav a:hover {
+  color: var(--color); 
 }
 
-.container {
+.container-header {
   position: relative;
   box-sizing: border-box;
   margin: 0;
@@ -67,8 +66,16 @@ nav a:hover::before {
   -webkit-backdrop-filter: blur(100px);
   backdrop-filter: blur(100px);
   font-size: 50px;
-  padding:  15%;
+  padding: 15%;
   height: 70vh;
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 1300px) {
+  .container-header {
+    font-size: 30px;
+
+  }
 }
 
 @supports (-moz-appearance:none) {
@@ -78,41 +85,49 @@ nav a:hover::before {
 }
 
 .hideme {
-height: 0px;
+  height: 0px;
 
 }
 
-.container h1 {
+.container-header h1 {
   text-transform: uppercase;
   margin: 0px;
   word-wrap: break-word
 }
-.container h3 {
+
+.container-header h3 {
 
   margin: 0;
-  margin-top: -20px;
-    font-size: 3rem;
-    line-height: 2.5rem;
+  margin-top: -10px;
+  font-size: 3rem;
+  line-height: 2.5rem;
 }
-.skills, .contact {
+
+.skills,
+.contact {
   z-index: 3;
   position: relative;
   padding: 20px;
+  box-sizing: border-box;
 }
+
 .contact-container {
   text-align: center;
 }
+
 .contact {
   box-shadow: 0px 0px 10px 0px #000000;
   display: flex;
   flex-wrap: wrap;
 }
+
 .contact a {
-  color: white; 
+  color: white;
   font-weight: 800;
   z-index: 5;
   font-size: 14px;
 }
+
 .contact:before {
   position: absolute;
   top: 0px;
@@ -126,9 +141,9 @@ height: 0px;
 }
 
 .contact-list {
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
   align-content: center;
   margin: 0 30px;
 }
@@ -141,14 +156,23 @@ height: 0px;
   word-break: break-word;
   width: 80px;
   margin-right: 20px;
+  transition: .2s;
+  margin-top: 10px;
 }
+
 .contact-list img {
   height: 100%;
   max-width: 40px;
   object-fit: contain;
   transition: .2s;
 }
-.contact-list img:hover {
+.contact-list a:hover {
+  color: var(--darkgray);
+  transition: .2s;
+  margin-top: 20px;
+}
+
+.contact-list a:hover img{
   transform: scale(1.5, 1.5);
   transition: .2s;
 }
@@ -169,24 +193,30 @@ height: 0px;
   box-shadow: 0px 0px 10px 0px #000000;
 }
 
-.portfolio-container, .skills-container, .contact-container {
+.portfolio-container,
+.skills-container,
+.contact-container {
   max-width: 900px;
   margin: auto;
 }
+
 .threed-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 5px;
+  display: flex;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  overflow-y: hidden;
 }
+
 .threed-gallery img {
   width: 100%;
-object-fit: contain;
-height: 100%;
+  height: 250px;
 }
+
 .animation-gallery {
   display: flex;
   flex-wrap: wrap;
 }
+
 .animation-gallery iframe {
   width: 250px;
 }
@@ -195,7 +225,7 @@ h2 {
   font-size: 2rem;
   padding: 10px 0px;
   text-transform: uppercase;
-  letter-spacing: 1rem;
+  letter-spacing: .5rem;
   word-wrap: break-word;
 }
 
@@ -205,30 +235,32 @@ h2 {
   justify-content: center;
   margin-top: 100px;
 }
+
 .proj .imggallery {
   display: flex;
   grid-gap: 10px;
   width: 100%;
-  overflow-x:scroll;
+  overflow-x: scroll;
   background: rgba(255, 255, 255, 0.1);
   padding: 15px;
+  box-sizing: border-box;
 }
 
-.imggallery::-webkit-scrollbar {
+.imggallery::-webkit-scrollbar, .threed-gallery::-webkit-scrollbar {
   width: 10px;
 }
 
-.imggallery::-webkit-scrollbar-track {
-  background: none; 
+.imggallery::-webkit-scrollbar-track, .threed-gallery::-webkit-scrollbar-track {
+  background: none;
   border-bottom: 1px solid #555;
 }
- 
-.imggallery::-webkit-scrollbar-thumb {
-  background: #888; 
+
+.imggallery::-webkit-scrollbar-thumb, .threed-gallery::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
-.imggallery::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+.imggallery::-webkit-scrollbar-thumb:hover, .threed-gallery::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .proj .imggallery img {
@@ -239,15 +271,17 @@ h2 {
   transition: .5s;
   border-radius: 5px;
 }
+
 .proj .desc h4 {
   margin-top: -10px;
 }
+
 .proj .desc ul {
   border-top: 1px solid #474747;
   border-bottom: 1px solid #474747;
   width: 100%;
   padding: 15px;
-
+  box-sizing: border-box;
 }
 
 .skills li {
@@ -257,6 +291,7 @@ h2 {
   margin: 5px;
   position: relative;
 }
+
 .skills li::before {
   border: 1px solid white;
   content: ' ';
@@ -267,6 +302,7 @@ h2 {
   left: 0px;
   opacity: .2;
 }
+
 .skills h3 {
   display: inline-block;
 
@@ -275,16 +311,15 @@ h2 {
   margin-right: 50px;
 }
 
-.hearts1
-{
+.hearts1 {
   display: flex;
   height: 40px;
   width: 40px;
   background-image: url('img/interactives/hearts.png');
   background-size: cover;
 }
-.hearts2
-{
+
+.hearts2 {
   display: flex;
   height: 40px;
   width: 40px;
@@ -292,13 +327,14 @@ h2 {
   background-size: cover;
 }
 
-.hearts1:hover, .hearts2:hover {
+.hearts1:hover,
+.hearts2:hover {
   animation: sprite .7s steps(49) forwards infinite;
 }
 
 @keyframes sprite {
   100% {
-      background-position: -1960px;
+    background-position: -1960px;
   }
 }
 
@@ -316,7 +352,7 @@ footer {
 
 .back-up {
   width: 100%;
-  text-align:right;
+  text-align: right;
   padding-right: 10px;
   cursor: pointer;
   background: none;
