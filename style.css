@@ -29,11 +29,11 @@ li {
   display: flex;
 }
 
-nav {
+.top-nav {
   z-index: 10;
   position: fixed;
   top: 0px;
-  background: var(--darkgray);
+
   display: block;
   justify-content: end;
   flex-wrap: wrap;
@@ -43,19 +43,24 @@ nav {
   line-height: 50px;
   box-sizing: border-box;
   margin: 0px;
+  background: var(--darkgray); 
+  opacity: .9;
+
 }
 
-nav a {
+.top-nav a {
   margin: 10px 10px;
   color: white;
   text-transform: uppercase;
   position: relative;
   font-weight: 600;
-  color: #dddddd;
-
+  color: white;
+  opacity: 1;
+  transition: .3s;
 }
-nav a:hover {
+.top-nav a:hover {
   color: var(--color); 
+  transition: .3s;
 }
 
 .container-header {
