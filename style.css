@@ -63,12 +63,17 @@ nav a:hover {
   box-sizing: border-box;
   margin: 0;
   z-index: 2;
-  -webkit-backdrop-filter: blur(100px);
-  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(90px);
+  backdrop-filter: blur(90px);
   font-size: 50px;
-  padding: 15%;
-  height: 70vh;
-  margin-top: 100px;
+
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  justify-items: start;
+  align-items: center; 
+  align-content: center;
+  padding: 10%;
 }
 
 @media screen and (max-width: 1300px) {
@@ -208,8 +213,8 @@ nav a:hover {
 }
 
 .threed-gallery img {
-  width: 100%;
   height: 250px;
+
 }
 
 .animation-gallery {
