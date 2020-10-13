@@ -1,0 +1,48 @@
+#cover-me {
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  height: 100%;
+}
+body {
+  background-image: linear-gradient(to right, #a10084, #8c3ba4, #6d57bc, #466dc9, #007fce);
+  position: relative;
+}
+.container-header {
+  position: absolute;
+  width: 100vw;
+  top: 0px;
+  box-sizing: border-box;
+  margin: 0;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(90px);
+  backdrop-filter: blur(90px);
+  font-size: 50px;
+  color: white;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  justify-items: start;
+  align-items: center;
+  align-content: center;
+  padding: 10%;
+
+  h1 {
+    text-transform: uppercase;
+    margin: 0px;
+    word-wrap: break-word;
+  }
+
+  h3 {
+    margin: 0;
+    margin-top: -10px;
+    font-size: 3rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .container-header {
+    font-size: 30px;
+  }
+}

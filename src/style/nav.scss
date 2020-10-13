@@ -1,0 +1,29 @@
+.top-nav {
+  z-index: 10;
+  position: sticky;
+  top: 0px;
+  display: block;
+  justify-content: end;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: right;
+  min-height: 50px;
+  line-height: 50px;
+  box-sizing: border-box;
+  margin: 0px;
+  a {
+    margin: 10px 10px;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 600;
+    color: white;
+    opacity: 1;
+  }
+  a:hover {
+    padding-bottom: 5px;
+    border-bottom: 3px solid white;
+    transition: 0.2s;
+  }
+}
