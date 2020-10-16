@@ -1,12 +1,14 @@
 import React from 'react';
-import './style/nav.scss'
+import './style/nav.scss';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default function Navigation() {
     return (
-        <nav class="top-nav">
-        <a href="#skills" onClick="scroll_to('#skills')">Skills</a>
-        <a href="#web-portfolio" onClick="scroll_to('#web-portfolio')">Web Portfolio</a>
-        <a href="#art-portfolio" onClick="scroll_to('#art-portfolio')">Art Portfolio</a>
+        <nav className="top-nav">
+          <Link to="/portfolio">Welcome</Link>
+        <Link to="/skills">Skills</Link>
+        <a href="#web-portfolio">Web Portfolio</a>
+        <a href="#art-portfolio">Art Portfolio</a>
       </nav>
     )
 }
