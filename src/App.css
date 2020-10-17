@@ -1,5 +1,8 @@
+@import url("https://use.typekit.net/tcr2vad.css");
 .App {
   text-align: center;
+height: 100%;
+  font-family: noto-sans, sans-serif;
 }
 
 .App-logo {
@@ -35,4 +38,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+html {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }

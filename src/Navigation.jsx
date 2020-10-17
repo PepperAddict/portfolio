@@ -1,13 +1,15 @@
 import React from 'react';
 import './style/nav.scss';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {useStyles} from './helpers/lightDark.js'
+import { Link } from 'react-router-dom';
 
-export default function Navigation() {
+export default function Navigation(props) {
+  const classes = useStyles();
     return (
-        <nav className="top-nav">
+        <nav className={props.dark ? classes.linkDark + ' top-nav': classes.linkLight + ' top-nav'}>
           <Link to="/portfolio">Welcome</Link>
         <Link to="/skills">Skills</Link>
-        <a href="#web-portfolio">Web Portfolio</a>
+        <Link to="/web">Web Portfolio</Link>
         <a href="#art-portfolio">Art Portfolio</a>
       </nav>
     )

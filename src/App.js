@@ -7,28 +7,27 @@ import Header from "./Header.jsx";
 import Skills from "./Skills.jsx";
 
 import Navigation from "./Navigation.jsx";
-import Contacts from "./Contacts.jsx";
 import Web from "./Web.jsx";
-import Mode from './Mode.jsx';
+import Footer from "./Footer.jsx";
 
-const darkURL = require('./img/bg/ice.jpg')
-const lightURL = require('./img/bg/flower-bg.jpg')
+const darkURL = require("./img/bg/velvet.jpg");
+const lightURL = require("./img/bg/flower-bg.jpg");
 
 export default function App() {
   const [selectedTag, setSelectedTag] = useState(null);
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(false);
 
   const lightStyle = {
-    backgroundImage: 'url(' + lightURL +')',
-    backgroundSize: 'cover',
-    color: 'black'
-  }
+    backgroundImage: "url(" + lightURL + ")",
+    backgroundSize: "cover",
+    color: "#262626",
+  };
 
   const darkStyle = {
-    backgroundImage: 'url(' + darkURL +')',
-    backgroundSize: 'cover',
-    color: 'white'
-  }
+    backgroundImage: "url(" + darkURL + ")",
+    backgroundSize: "cover",
+    color: "#f2f2f2",
+  };
   const [languages] = useState([
     "HTML5",
     "JSX",
@@ -73,25 +72,45 @@ export default function App() {
 
   return (
     <Router>
-      <div className="App">
-        <Navigation />
-        <Contacts />
-        <div class="container-header" style={(dark) ? darkStyle : lightStyle}>
+      <div className="App" style={dark ? darkStyle : lightStyle}>
+        <div className="container-header">
+          <Navigation dark={dark} setSelectedTag={setSelectedTag}/>
           <Switch>
             <Route path="/portfolio" exact>
               <Header />
             </Route>
-            <Route
-              path="/skills"
-              exact
-              component={(props) => (
-                <Skills {...props} tools={tools} languages={languages} selectedTag={selectedTag} setSelectedTag={setSelectedTag}/>
-              )}
-            />
-            {selectedTag && 
-            <Route exact path="/web" component={ (props) => <Web {...props} selectedTag={selectedTag} setSelectedTag={setSelectedTag} />} />}
+
+              <Route
+                exact
+                path="/web"
+                component={(props) => (
+                  <Web
+                    {...props}
+                    selectedTag={selectedTag}
+                    setSelectedTag={setSelectedTag}
+                    dark={dark}
+                  />
+                )}
+              />
+
+              <Route
+                path="/skills"
+                exact
+                component={(props) => (
+                  <Skills
+                    {...props}
+                    tools={tools}
+                    languages={languages}
+                    selectedTag={selectedTag}
+                    setSelectedTag={setSelectedTag}
+                    dark={dark}
+                  />
+                )}
+              />
+
           </Switch>
-          <Mode setDark={setDark} dark={dark}/>
+
+          <Footer setDark={setDark} dark={dark} />
         </div>
       </div>
     </Router>

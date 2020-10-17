@@ -1,17 +1,13 @@
 .skills {
   z-index: 3;
   position: relative;
-  padding: 20px;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.4);
-  padding-bottom: 100px;
-  width: 100vw;
+
+
   ul {
     margin: 0px;
     padding: 0 0 0 10px;
     display: flex;
     flex-wrap: wrap;
-    border-left: 3px solid rgba(255, 255, 255, 0.5);
     li {
       display: inline-block;
       margin-right: 5px;
@@ -19,10 +15,11 @@
       margin: 5px;
       position: relative;
       font-size: 1rem;
+      cursor: pointer;
+      transition: .2s;
     }
 
     li::before {
-      border: 1px solid white;
       content: " ";
       position: absolute;
       width: 100%;
@@ -32,26 +29,59 @@
       opacity: 0.2;
     }
   }
-
-  h3 {
+h2 {
+  text-align: left;
+  font-size: 2rem;
+  font-family: brevia, sans-serif;
+  margin: 0px;
+}
+h3 {
+  font-size: 1rem;
+  font-family: protipo, sans-serif;
+  margin: 0px;
+  text-align: left;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+  h4 {
     display: inline-block;
     padding-right: 10px;
     text-align: right;
     height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin: 0px;
   }
   .skills-container {
-    max-width: 900px;
     margin: auto;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 80px auto auto;
+    grid-row-gap: 10px;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    
     div {
+      max-width: 900px;
       display: grid;
-      grid-template-columns: 300px 2fr;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       align-items: start;
       justify-items: start;
       justify-content: start;
-      padding: 0px;
+      padding: 30px;
+      box-sizing: border-box;
       align-content: start;
+      position: relative;
+      z-index: 4;
+      border-radius: 5px;
+      width: 100%;
+      overflow: hidden;
     }
   }
 }
