@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import "./style/header.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
 import Header from "./Header.jsx";
 import Skills from "./Skills.jsx";
 
@@ -13,9 +12,12 @@ import Footer from "./Footer.jsx";
 const darkURL = require("./img/bg/velvet.jpg");
 const lightURL = require("./img/bg/flower-bg.jpg");
 
+
+
 export default function App() {
   const [selectedTag, setSelectedTag] = useState(null);
   const [dark, setDark] = useState(false);
+  const [currentNav, setCurrentNav] = useState(true)
 
   const lightStyle = {
     backgroundImage: "url(" + lightURL + ")",
@@ -72,9 +74,9 @@ export default function App() {
 
   return (
     <Router>
-      <div className="App" style={dark ? darkStyle : lightStyle}>
+      <div style={dark ? darkStyle : lightStyle} className='App'>
         <div className="container-header">
-          <Navigation dark={dark} setSelectedTag={setSelectedTag}/>
+          <Navigation dark={dark} setSelectedTag={setSelectedTag} setCurrentNav={setCurrentNav}/>
           <Switch>
             <Route path="/portfolio" exact>
               <Header />

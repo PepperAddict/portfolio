@@ -25,13 +25,13 @@ export default function Skills(props) {
                 <span><h2>Skills</h2>
                 <h3>Click on a skill to see a related project.</h3>
                     </span>
-                <div className={(props.dark === true) ? classes.indiDark + " enter-two": classes.indiLight + " enter-two"}>
+                <div className={(props.dark === true) ? classes.indiDark + " skill-content": classes.indiLight + " skill-content"}>
                     <h4>Languages and Frameworks</h4>
                     <ul>
                         {props.languages.map((item, key) => <Link key={key} to='/web'><li onClick={() => props.setSelectedTag(item)}>{item}</li></Link>)}
                     </ul>
                 </div>
-                <div className={(props.dark === true) ? classes.indiDark +" enter-three" : classes.indiLight + " enter-three"}>
+                <div className={(props.dark === true) ? classes.indiDark +" skill-content" : classes.indiLight + " skill-content"}>
                     <h4>Tools and Services</h4>
                     <ul>
                         {props.tools.map((item, key) => <Link key={key} to='/web'><li onClick={() => props.setSelectedTag(item)}>{item}</li></Link>)}

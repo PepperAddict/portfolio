@@ -17,10 +17,12 @@ export const useStyles = createUseStyles({
     },
     '& a': {
         color: 'white'
-    }
+    },
   },
   light: {
-    backdropFilter: "blur(10px)",
+    '& .project-container': {
+      background: "radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3))"
+    },
     '& h2': {      
       color: "black",
       textShadow: "2px 2px 5px rgba(0, 0, 0, 0.1)"
@@ -28,10 +30,13 @@ export const useStyles = createUseStyles({
     '& h3': {
       color: "#DAA520",
       boxShadow: "0px 50px 130px rgba(255, 255, 255, 0.7)",
-      borderBottom: "1px solid rgba(255, 255, 255, 0.5)",
-
+    },
+    '& .skill-content': {
+      backdropFilter: "blur(10px)",
+      border: "1px solid rgba(255, 255, 255, 0.3)"
     },
     '& ul': {
+
         borderLeft: "1px solid rgba(0, 0, 0, 0.1)"
     },
     '& li::before': {
@@ -47,19 +52,21 @@ export const useStyles = createUseStyles({
     }
   },
   linkDark: {
+    background: "",
     "& a": {
       color: "white",
     },
     "& a:hover": {
-      borderBottom: "3px solid white",
+      color: "#DAA520",
     },
   },
   linkLight: {
+    background: "white",
     "& a": {
       color: "#262626",
     },
     "& a:hover": {
-      borderBottom: "3px solid #262626",
+      color: "white"
     },
   },
   indiDark: {

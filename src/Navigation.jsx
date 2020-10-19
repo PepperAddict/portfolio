@@ -7,10 +7,10 @@ export default function Navigation(props) {
   const classes = useStyles();
     return (
         <nav className={props.dark ? classes.linkDark + ' top-nav': classes.linkLight + ' top-nav'}>
-          <Link to="/portfolio">Welcome</Link>
-        <Link to="/skills">Skills</Link>
-        <Link to="/web">Web Portfolio</Link>
-        <a href="#art-portfolio">Art Portfolio</a>
+          <Link to="/portfolio" onClick={() => props.setCurrentNav(true)}>Welcome</Link>
+        <Link to="/skills" onClick={() => props.setCurrentNav(false)}>Skills</Link>
+        <Link to="/web" onClick={() => props.setCurrentNav(false)}>Web Portfolio</Link>
+        <a href="#art-portfolio" onClick={() => props.setCurrentNav(false)}>Art Portfolio</a>
       </nav>
     )
 }

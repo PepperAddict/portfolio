@@ -8,7 +8,7 @@ export const projects = [
       openSource: "https://github.com/PepperAddict/Item-Visualizer",
       demoVideo: "https://youtu.be/579VsWvkZRk"
     },
-    tags: ["ReactJS", "HTML", "CSS", "Monday API", "Git", "NodeJS", "Puppeteer", "Canvas", "JavaScript", "ES6"],
+    tags: ["ReactJS", "HTML", "CSS", "Adobe Photoshop", "Inkscape", "Adobe XD", "Monday API", "Git", "NodeJS", "Puppeteer", "Canvas", "JavaScript", "ES6"],
     description: [
       "A Monday View App to help explain your ticket better with three methods such as editing a screen shot, record a video, and more",
       "I developed this as a full stack developer using ReactJS as the front end and NodeJS as the backend for Monday Communication."
@@ -33,7 +33,9 @@ export const projects = [
       {
         link: require('../img/vi5.png'),
         alt: "The homepage with videos on how to use the app"
-      },
+      }
+    ],
+    videos: [
       {
         link: "https://www.youtube.com/watch?v=AGqnjZ_9UCA",
         alt: "Video tutorial on how to use Show the Video"
@@ -56,14 +58,14 @@ export const projects = [
       openSource: "https://github.com/PepperAddict/monday-widget-current-time",
       demoVideo: "https://www.youtube.com/watch?v=2AD97Lp041c",
     },
-    tags: ["ReactJS", "HTML", "CSS", "Monday API", "Git"],
+    tags: ["ReactJS", "HTML", "CSS", "Monday API", "Git", "Adobe Photoshop", "Adobe XD"],
     description: [
       `Current Time for Monday shows everybody's time in their timezone.`,
       `This app was made with <a href="https://www.npmjs.com/package/monday-sdk-js" target="_blank" rel="nofollow noopener noreferrer">Monday's SDK API</a> and ReactJS`,
     ],
     images: [
       {
-        link: require("../img/ct2.jpg"),
+        link: require("../img/ct2.png"),
         alt: "Monday App in Dashboard Expanded View",
       },
       {
@@ -110,7 +112,7 @@ export const projects = [
         "https://github.com/PepperAddict/atlassian-connect-mockup-integration",
       demoVideo: "https://www.youtube.com/watch?v=Nt8UjXpXSSc",
     },
-    tags: ["ReactJS", "Git", "CSS", "Atlassian Connect API", "Figma API"],
+    tags: ["ReactJS", "Git", "CSS", "Inkscape", "Atlassian Connect API", "Figma API"],
     description: [
       `Mockup Integration is an Atlassian Jira app for attaching your mockups/prototypes from various services or you can upload a file and attach that to the issue ticket`,
       `Built with ReactJS and CSS`,
@@ -221,7 +223,7 @@ export const projects = [
         alt: "screenshot of VFPreset's hero section that has a slideshow",
       },
       {
-        link: require("./img/vfp2.png"),
+        link: require("../img/vfp2.png"),
         alt: "screenshot of VFPreset's section with video popup",
       },
       {
@@ -246,11 +248,11 @@ export const projects = [
     },
     tags: [
       "PHP",
+      "Sass",
       "JavaScript",
       "JQuery",
       "Wordpress",
       "HTML",
-      "SASS",
       "CSS",
       "Grunt",
       "Selenium",
@@ -262,6 +264,7 @@ export const projects = [
       "MySQL",
       "VPN",
       "SSH",
+      "Ontraport"
     ],
     description: [
       "Maintained and improved existing theme and plugins.",
@@ -381,6 +384,7 @@ export const projects = [
       "Gulp",
       "Texture Packer",
       "Blender",
+      "PWA"
     ],
     description: [
       "An open source offline single player and online multiplayer JavaScript Phaser 3 fighting game with different types of characters",
@@ -435,7 +439,7 @@ export const projects = [
       links: {
           openSource: "https://github.com/PepperAddict/restaurant"
       },
-      tags: ["JavaScript", "ES6", "Gulp", "Service Worker", "IndexedDB API", "HTML", "CSS", "Google Maps API"],
+      tags: ["JavaScript", "PWA", "ES6", "Gulp", "Service Worker", "IndexedDB API", "HTML", "CSS", "Google Maps API"],
       description: ["A project for pulling up local restaurants to practice using PWA tools such as Service Worker and Promised IndexedDB"],
       images: [
           {
@@ -455,7 +459,7 @@ export const projects = [
       links: {
           openSource: "https://github.com/PepperAddict/gwg-women-techmakers"
       },
-      tags: ["JavaScript", "ES6", "IndexedDB", "Inkscape", "Service Worker", "Google Maps API", "Weather API", "ReactJS", "CSS"],
+      tags: ["JavaScript", "PWA", "ES6", "IndexedDB", "Inkscape", "Service Worker", "Google Maps API", "Weather API", "ReactJS", "CSS"],
       description: ["An open source group project that gives local data of your location while offline"],
       images: [
           {

@@ -1,9 +1,11 @@
 @import url("https://use.typekit.net/tcr2vad.css");
 .App {
   text-align: center;
-height: 100%;
+  width: 100%;
+  height: auto;
   font-family: noto-sans, sans-serif;
 }
+
 
 .App-logo {
   height: 40vmin;
