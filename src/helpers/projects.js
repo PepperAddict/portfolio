@@ -38,15 +38,15 @@ export const projects = [
     videos: [
       {
         link: "https://www.youtube.com/watch?v=AGqnjZ_9UCA",
-        alt: "Video tutorial on how to use Show the Video"
+        alt: "Video tutorial on how to use 'Show the Video'"
       },
       {
         link: "https://www.youtube.com/watch?v=iK_jXmQq0is",
-        alt: "video tutorial on how to use Show the Idea"
+        alt: "Video tutorial on how to use 'Show the Idea'"
       },
       {
         link: "https://www.youtube.com/watch?v=fGsY3KLNeZM",
-        alt: "Video tutorial on how to use Show the Website"
+        alt: "Video tutorial on how to use 'Show the Website'"
       }
     ]
   },

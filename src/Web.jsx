@@ -1,7 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Fragment } from 'react';
 import { projects } from './helpers/projects.js';
 import './style/web.scss';
 import { useStyles } from './helpers/lightDark.js';
+
+function Image(props) {
+    const [hovered, setHovered] = useState(false)
+
+    return <Fragment>
+        <a href={props.image.link} target="_blank" rel="noopener noreferrer" onMouseOver={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+            <img src={props.image.link} alt={props.image.alt} />
+            {hovered && <span className="alt-show">{props.image.alt}</span>}
+        </a>
+    </Fragment>
+}
 
 export default function Web(props) {
     const classes = useStyles();
@@ -10,6 +21,9 @@ export default function Web(props) {
     const prev = useRef();
     const next = useRef();
 
+    useEffect(() => {
+        setNum(1)
+    }, [])
 
     useEffect(() => {
 
@@ -28,52 +42,63 @@ export default function Web(props) {
     }, [props.selectedTag])
 
     const nextProj = () => {
+        console.log(num)
         if (projt.length > num) {
             setNum(num + 1)
         }
     }
 
     const prevProj = () => {
+        console.log(num)
         if (num > 1) {
             setNum(num - 1)
         }
     }
 
     return (
-        <div className={(props.dark === true) ? classes.dark + " web-container": classes.light + " web-container"}>
-
-            <span className={num <= 1 ? 'inactive-button' : 'active-button prev-b'} ref={prev} onClick={() => prevProj()}>❮</span>
+        <div className={(props.dark === true) ? classes.dark + " web-container" : classes.light + " web-container"}>
 
             {projt.slice(num - 1, num).map((proj, key) => {
-                return <div key={key} id={"project-" + key} className="project-container enter">
-                    <h2>Web Portfolio {'›'} <span>{proj.name}</span></h2>
-                    {props.selectedTag && <p>Filtered Tag: {props.selectedTag}</p>}
-                    <h3>{proj.description.map((desc, key) => <p key={key}>{desc}</p>)}</h3>
+                return <div key={key} id={"project-" + key} className="project-container">
+                    <h1>Web Portfolio</h1>
+                        <h2>{proj.name}</h2>
+
+                    <div className="top-right">
+                        {props.selectedTag && <p><strong>Filtered Tag:</strong> <span className="gold-text">{props.selectedTag}</span></p>}
+                        <button onClick={() => { setNum(1); props.setSelectedTag(null) }}>Reset</button>
+                    </div>
+
+                    <div className="desc-container">
+                        {proj.description.map((desc, key) => <p key={key} dangerouslySetInnerHTML={{__html: desc}} />)}
+                    </div>
+
                     <div className="links-container">
-                        links: {proj.links.install && <a href={proj.links.install}>Install</a>}
-                        {proj.links.openSource && <a href={proj.links.openSource}>Open Source</a>}
-                        {proj.links.demoVideo && <a href={proj.links.demoVideo}>Demo Video</a>}
+                        <h3>Links</h3> {proj.links.install && <a href={proj.links.install} target="_blank" rel="noopener noreferrer" >Install App</a>}
+                        {proj.links.website && <a href={proj.links.website} target="_blank" rel="noopener noreferrer" >Live Website</a>}
+                        {proj.links.openSource && <a href={proj.links.openSource} target="_blank" rel="noopener noreferrer">Open Source</a>}
+                        {proj.links.demoVideo && <a href={proj.links.demoVideo} target="_blank" rel="noopener noreferrer">Demo Video</a>}
                     </div>
 
                     <div className="tags-container">
                         <h3>Tags</h3>
                         <div className="tags">
-                            {proj.tags.map((tag, key) => <span onClick={() => props.setSelectedTag(tag)} key={key}>{tag}</span>)}
+                            {proj.tags.sort().map((tag, key) => <span className={(props.selectedTag === tag) ? "active-tag" : "normal-tag"} onClick={() => props.setSelectedTag(tag)} key={key}>{tag}</span>)}
                         </div>
                     </div>
                     <div className="proj-image-container">
                         <h3>Images:</h3>
                         <div key={key} className="proj-image">
 
-                            {proj.images.map((image, key) => {
-                                return <a key={key} href={image.link} target="_blank" rel="noopener noreferrer" ><img src={image.link} alt={image.alt} /></a>
-
-                            })}
+                            {proj.images.map((image, key) => <Image image={image} key={key} />)}
                             {proj.videos && proj.videos.map((vids, key) => <a key={key} href={vids.link} target="_blank" rel="noopener noreferrer">{vids.alt}</a>)}
                         </div>
                     </div>
                 </div>
             })}
-            <span className={projt.length <= num ? 'inactive-button' : 'active-button next-b'}  ref={next} onClick={() => nextProj()}>❯</span>
+            <div className="next-prev">
+                <span className={num <= 1 ? 'inactive-button' : 'active-button prev-b'} ref={prev} onClick={() => prevProj()}>❮</span>
+                <span className={projt.length <= num ? 'inactive-button' : 'active-button next-b'} ref={next} onClick={() => nextProj()}>❯</span>
+            </div>
+
         </div>)
 }

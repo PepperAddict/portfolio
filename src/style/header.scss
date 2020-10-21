@@ -16,12 +16,12 @@ body {
 // }
 .enter {
   animation-name: enter;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
 }
 @keyframes enter {
   from {
-    opacity: 0;
+    transform: 0;
   }
   to {
     opacity: 1;
@@ -47,6 +47,7 @@ body {
   padding: 0px;
   grid-template-rows: 100px 1fr 150px;
   display: grid;
+  position: relative;
 
   header {
     h1 {
