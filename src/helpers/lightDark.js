@@ -63,6 +63,9 @@ export const useStyles = createUseStyles({
     '& li:hover': {
         color: '#DAA520'
     },
+    '& a': {
+        color: 'white'
+    },
   },
   light: {
     '& .project-container, & .art-gallery-container': {
@@ -91,6 +94,7 @@ export const useStyles = createUseStyles({
         color: white
       }
     },
+
     '& .active-button': {
       background: white,
       color: "black",
@@ -145,6 +149,9 @@ export const useStyles = createUseStyles({
   },
   indiDark: {
     border: "1px solid black",
-    background: "rgba(0, 0, 0, 0.2)"
+    background: "rgba(0, 0, 0, 0.2)",
+    '& a': {
+      color: blue
+    }
   }
 });

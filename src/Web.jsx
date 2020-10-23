@@ -79,18 +79,16 @@ export default function Web(props) {
                         {proj.description.map((desc, key) => <p key={key} dangerouslySetInnerHTML={{ __html: desc }} />)}
                         <div className="preview-image">
                             {currentImage && currentImage.type === "video" ? <iframe src={currentImage.link} title={currentImage.alt} /> :
-
-                                <a href={(currentImage) ? currentImage.link : proj.images[0].link} target="_blank" rel="noopener noreferrer"><img src={(currentImage) ? currentImage.link : proj.images[0].link} /></a>
-
+                                <a href={(currentImage) ? currentImage.link : proj.images[0].link} target="_blank" rel="noopener noreferrer"><img src={(currentImage) ? currentImage.link : proj.images[0].link} alt={(currentImage) ? currentImage.alt: proj.images[0].alt}/></a>
                             } </div>
 
                     </div>
 
                     <div className="links-container">
-                        <h3>Links</h3> {proj.links.install && <a href={proj.links.install} target="_blank" rel="noopener noreferrer" >Install App</a>}
-                        {proj.links.website && <a href={proj.links.website} target="_blank" rel="noopener noreferrer" >Live Website</a>}
-                        {proj.links.openSource && <a href={proj.links.openSource} target="_blank" rel="noopener noreferrer">Open Source</a>}
-                        {proj.links.demoVideo && <a href={proj.links.demoVideo} target="_blank" rel="noopener noreferrer">Demo Video</a>}
+                        <h3>Links</h3> {proj.links.install && <a tabIndex="0" href={proj.links.install} target="_blank" rel="noopener noreferrer" >Install App</a>}
+                        {proj.links.website && <a tabIndex="1" href={proj.links.website} target="_blank" rel="noopener noreferrer" >Live Website</a>}
+                        {proj.links.openSource && <a tabIndex="2" href={proj.links.openSource} target="_blank" rel="noopener noreferrer">Open Source</a>}
+                        {proj.links.demoVideo && <a tabIndex="3" href={proj.links.demoVideo} target="_blank" rel="noopener noreferrer">Demo Video</a>}
                     </div>
 
                     <div className="tags-container">
