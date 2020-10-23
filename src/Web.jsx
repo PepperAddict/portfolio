@@ -4,13 +4,14 @@ import './style/web.scss';
 import { useStyles } from './helpers/lightDark.js';
 
 function Image(props) {
-    const [hovered, setHovered] = useState(false)
+    const [hovered, setHovered] = useState(false);
+
 
     return <Fragment>
-        <a href={props.image.link} target="_blank" rel="noopener noreferrer" onMouseOver={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <span target="_blank" rel="noopener noreferrer" onClick={() => props.setCurrentImage({ link: props.image.link, type: "image", alt: props.image.alt })} onMouseOver={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <img src={props.image.link} alt={props.image.alt} />
             {hovered && <span className="alt-show">{props.image.alt}</span>}
-        </a>
+        </span>
     </Fragment>
 }
 
@@ -20,6 +21,7 @@ export default function Web(props) {
     const [num, setNum] = useState(1);
     const prev = useRef();
     const next = useRef();
+    const [currentImage, setCurrentImage] = useState(null);
 
     useEffect(() => {
         setNum(1)
@@ -61,7 +63,12 @@ export default function Web(props) {
             {projt.slice(num - 1, num).map((proj, key) => {
                 return <div key={key} id={"project-" + key} className="project-container">
                     <h1>Web Portfolio</h1>
-                        <h2>{proj.name}</h2>
+                    <h2 className="control-header">
+                        <span className={num <= 1 ? 'inactive-button' : 'act-button prev'} ref={prev} onClick={() => prevProj()}>❮</span>
+                        <span className="header-text">{proj.name} </span>
+                        <span className={projt.length <= num ? 'inactive-button' : 'act-button next'} ref={next} onClick={() => nextProj()}>❯</span>
+                    </h2>
+
 
                     <div className="top-right">
                         {props.selectedTag && <p><strong>Filtered Tag:</strong> <span className="gold-text">{props.selectedTag}</span></p>}
@@ -69,7 +76,14 @@ export default function Web(props) {
                     </div>
 
                     <div className="desc-container">
-                        {proj.description.map((desc, key) => <p key={key} dangerouslySetInnerHTML={{__html: desc}} />)}
+                        {proj.description.map((desc, key) => <p key={key} dangerouslySetInnerHTML={{ __html: desc }} />)}
+                        <div className="preview-image">
+                            {currentImage && currentImage.type === "video" ? <iframe src={currentImage.link} title={currentImage.alt} /> :
+
+                                <a href={(currentImage) ? currentImage.link : proj.images[0].link} target="_blank" rel="noopener noreferrer"><img src={(currentImage) ? currentImage.link : proj.images[0].link} /></a>
+
+                            } </div>
+
                     </div>
 
                     <div className="links-container">
@@ -89,16 +103,16 @@ export default function Web(props) {
                         <h3>Images:</h3>
                         <div key={key} className="proj-image">
 
-                            {proj.images.map((image, key) => <Image image={image} key={key} />)}
-                            {proj.videos && proj.videos.map((vids, key) => <a key={key} href={vids.link} target="_blank" rel="noopener noreferrer">{vids.alt}</a>)}
+                            {proj.images.map((image, key) => <Image image={image} key={key} setCurrentImage={setCurrentImage} />)}
+                            {proj.videos && proj.videos.map((vids, key) => <span key={key} onClick={() => setCurrentImage({ link: vids.link, alt: vids.alt, type: "video" })} href={vids.link} target="_blank" rel="noopener noreferrer">{vids.alt}</span>)}
                         </div>
                     </div>
                 </div>
             })}
-            <div className="next-prev">
+            {/* <div className="next-prev">
                 <span className={num <= 1 ? 'inactive-button' : 'active-button prev-b'} ref={prev} onClick={() => prevProj()}>❮</span>
                 <span className={projt.length <= num ? 'inactive-button' : 'active-button next-b'} ref={next} onClick={() => nextProj()}>❯</span>
-            </div>
+            </div> */}
 
         </div>)
 }

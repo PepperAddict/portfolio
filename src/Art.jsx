@@ -9,22 +9,25 @@ export default function Art(props) {
         type: "image",
         current: 0
     })
+
     let [num, setNum] = useState(0)
 
     const [showWhich, setShowWhich] = useState(1)
 
-    const focusIt = (image, key) => {
-        setFullImage({ content: image, type: "image", current: key })
+    const focusIt = (image, key, ele, type) => {
+        setFullImage({ content: image, type: type, current: key })
+        ele.target.focus();
+        setNum(key)
     }
 
     const classes = useStyles();
 
     const nextOrPrev = (e, next) => {
+        console.log(fullImage)
         let newthingy
 
-        if (num >= 0 || num <= artProjs.renders.length) {
+        if (num >= 0 || num <= fullImage.content.length) {
             next ? newthingy = ++num : newthingy = --num;
-
             setNum(newthingy)
             let ele = document.getElementById('image' + num)
             changeIt(ele, e)
@@ -41,20 +44,24 @@ export default function Art(props) {
 
     const changeIt = (ele, e) => {
         if (ele) {
+            ele.scrollIntoView(false);
+            ele.focus()
+            let att;
 
-            ele.scrollIntoView();
-            const att = {
+            att = {
                 content: {
-                    link: ele.attributes.src.value,
-                    alt: ele.attributes.alt.value,
+                    link: ele.attributes['data-link'].value,
+                    alt: ele.attributes['data-alt'].value,
                     desc: ele.attributes['data-desc'].value
                 },
-                type: "image",
+                type: (ele.attributes['data-type'] === 'image') ? "image" : "video",
                 current: e
             }
             setFullImage(att)
         }
     }
+
+
     const resetWhenClicked = e => {
         setShowWhich(e);
         let cont;
@@ -79,46 +86,50 @@ export default function Art(props) {
         }
         setFullImage(cont)
     }
-    return (<div className={(props.dark === true) ? classes.dark +" art-gallery-container" : classes.light + " art-gallery-container"}>
+    return (
+        <div className={(props.dark === true) ? classes.dark + " full-container" : classes.light + " full-container"}>
+            <div className="art-gallery-container">
 
-        <div className="sidebar">
-            <h1>Art Gallery</h1>
+                <div className="sidebar">
+                    <h1>Art Portfolio</h1>
 
-            <h2>{fullImage.content.alt}</h2>
-            <p className="desc">{fullImage.content.desc && fullImage.content.desc}</p>
-            <div className="button-container">
-                <span className="next circle-button" onClick={() => nextOrPrev(fullImage.current, false)}>❮</span>
-                <span className="prev circle-button" onClick={() => nextOrPrev(fullImage.current, true)}>❯</span>
-            </div>
+                    <h2>{fullImage.content.alt}</h2>
+                    <p className="desc">{fullImage.content.desc && fullImage.content.desc}</p>
+                    <div className="button-container">
+                        <span className="active-button circle-button" onClick={() => nextOrPrev(fullImage.current, false)}>❮</span>
+                        <span className="active-button circle-button" onClick={() => nextOrPrev(fullImage.current, true)}>❯</span>
+                    </div>
 
-            <nav>
-                <ul>
-                    <li onClick={() => resetWhenClicked(1)} className={showWhich === 1 ? "active-tab" : "inactive-tab"}>3D Renders</li>
-                    <li onClick={() => resetWhenClicked(2)} className={showWhich === 2 ? "active-tab" : "inactive-tab"}>Game Renders</li>
-                    <li onClick={() => resetWhenClicked(3)} className={showWhich === 3 ? "active-tab" : "inactive-tab"}>Animations</li>
-                </ul>
-            </nav>
+                    <nav>
+                        <ul>
+                            <li onClick={() => resetWhenClicked(1)} className={showWhich === 1 ? "active-tab" : "inactive-tab"}>3D Renders</li>
+                            <li onClick={() => resetWhenClicked(2)} className={showWhich === 2 ? "active-tab" : "inactive-tab"}>Game Renders</li>
+                            <li onClick={() => resetWhenClicked(3)} className={showWhich === 3 ? "active-tab" : "inactive-tab"}>Animations</li>
+                        </ul>
+                    </nav>
 
-        </div>
-        <div className="content-container">
-            <div className="main-image">
+                </div>
+                <div className="content-container">
+                    <div className="main-image">
+                         {fullImage.type === "video" ? <iframe src={fullImage.content.link} title={fullImage.content.alt} />   :
+                            <img src={fullImage.content.link} alt={fullImage.content.alt} />}
+                        
+                    </div>
 
-                {fullImage.type === "image" && <img src={fullImage.content.link} alt={fullImage.content.alt} />}
+                    <div className="gallery-container">
 
-            </div>
-            <div className="gallery-container">
+                        <div className="gallery-image-container">
+                            {showWhich === 1 ?
+                                artProjs.renders.map((renders, key) => <a tabIndex={key} onClick={(e) => focusIt(renders, key, e, "image")} id={'image' + key} key={key} data-desc={(renders.desc) ? renders.desc : " "} data-link={renders.link} data-alt={renders.alt}><img width="auto" height="100%" src={renders.link} alt={renders.alt} /> </a>)
+                                : showWhich === 2 ? artProjs.gameRenders.map((game, key) => <a tabIndex={key} onClick={(e) => focusIt(game, key, e, "image")} id={'image' + key} key={key} data-desc={(game.desc) ? game.desc : " "} data-link={game.link} data-alt={game.alt}><img key={key} id={'image' + key} src={game.link} alt={game.alt} /></a>)
+                                    : artProjs.animations.map((link, key) => <p id={'image' + key} tabIndex={key} key={key} onClick={(e) => focusIt(link, key, e, link.type) } data-desc={link.desc} data-alt={link.alt} data-link={link.link} data-type={link.type}>{link.alt}</p>)
+                            }
 
-                <div className="gallery-image-container">
-                    {showWhich === 1 ?
-                        artProjs.renders.map((renders, key) => <img key={key} src={renders.link} id={'image' + key} alt={renders.alt} onClick={() => focusIt(renders, key)} data-desc={(renders.desc) ? renders.desc : " "} />)
-                        : showWhich === 2 ? artProjs.gameRenders.map((game, key) => <img key={key} id={'image' + key} src={game.link} alt={game.alt} onClick={() => setFullImage({ content: game, type: "image" })} data-desc={(game.desc) ? game.desc : " "} />)
-                            : artProjs.animations.map((link, key) => <a key={key} href={link.link} target="_blank" rel="noopener noreferrer" >{link.alt}</a>)
-                    }
+                        </div>
+                    </div>
 
                 </div>
             </div>
         </div>
-
-    </div>
     )
 }

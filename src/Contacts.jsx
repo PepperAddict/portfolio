@@ -1,18 +1,18 @@
 import React from 'react';
 import './style/contacts.scss'
-
+import { useStyles } from './helpers/lightDark.js';
 //icons 
-const gmail = require('./img/gmail.png');
-const linkedin = require('./img/LI-In-Bug.png');
-const github = require('./img/Octocat.png');
-const gitlab = require('./img/gitlab-icon-rgb.png');
-const dribbble = require('./img/dribbble.png');
+const gmail = require('./img/gmail.webp');
+const linkedin = require('./img/LI-In-Bug.webp');
+const github = require('./img/Octocat.webp');
+const gitlab = require('./img/gitlab-icon-rgb.webp');
+const dribbble = require('./img/dribbble.webp');
 
 
-export default function Contacts() {
+export default function Contacts(props) {
+    const classes = useStyles();
     return (
-
-        <div className="contact-container">
+        <div className={(props.dark === true) ? classes.dark + " contact-container": classes.light + " contact-container"}>
 
             <div className="contact-list">
                 <a href="mailto:jenearly@gmail.com">

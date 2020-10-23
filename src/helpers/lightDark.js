@@ -21,7 +21,7 @@ export const useStyles = createUseStyles({
     }
   },
   dark: {
-    '& .project-container': {
+    '& .project-container, & .art-gallery-container': {
       background: "radial-gradient(rgba(14, 14, 14, 0.9), rgba(14, 14, 14, 0.3))",
       '& .proj-image a': {
         background: "white",
@@ -47,6 +47,7 @@ export const useStyles = createUseStyles({
     '& .active-button': {
       background: black,
       color: white
+
     },
     '& h2': {
       color: "white",
@@ -62,13 +63,12 @@ export const useStyles = createUseStyles({
     '& li:hover': {
         color: '#DAA520'
     },
-    '& a': {
-        color: 'white'
-    },
   },
   light: {
-    '& .project-container': {
+    '& .project-container, & .art-gallery-container': {
       background: "radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3))",
+      boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.1)",
+      backdropFilter: "blur(10px)",
       '& .proj-image a': {
         background: "white",
         color: textDarkGray
@@ -93,7 +93,8 @@ export const useStyles = createUseStyles({
     },
     '& .active-button': {
       background: white,
-      color: "black"
+      color: "black",
+      border: "1px solid #eeeeee"
     },
     '& h2': {      
       color: textDarkGray,
@@ -104,7 +105,9 @@ export const useStyles = createUseStyles({
       boxShadow: "0px 50px 130px rgba(255, 255, 255, 0.7)",
     },
     '& .skill-content': {
+      background: "radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3))",
       backdropFilter: "blur(10px)",
+      boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.1)",
       border: "1px solid rgba(255, 255, 255, 0.3)"
     },
     '& ul': {
@@ -123,7 +126,7 @@ export const useStyles = createUseStyles({
     }
   },
   linkDark: {
-    background: "",
+    backgroundImage: "linear-gradient(to top, #1e1e1e, #1c1c1c, #1a1a1a, #181818, #161616);",
     "& a": {
       color: "white",
     },
@@ -137,7 +140,7 @@ export const useStyles = createUseStyles({
       color: "#262626",
     },
     "& a:hover": {
-      color: "white"
+      color: textGold
     },
   },
   indiDark: {

@@ -47,15 +47,12 @@ export default function Mode(props) {
         <div className='mode'>
             <span onClick={() => clicky(false)}>Light</span>
             <label className="switch">
-
+                <span className="hide-me">Change Mode</span>
                 <input type="checkbox" ref={checky} onChange={changeIt} />
                 <span className="slider round"></span>
-
             </label>
             <span onClick={() => clicky(true)}>Dark</span>
         </div>
-
-
 
     )
 }

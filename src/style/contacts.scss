@@ -16,7 +16,7 @@
   
   .contact-list {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin-left: auto;
   }
   
@@ -35,10 +35,10 @@
     max-width: 30px;
     object-fit: contain;
     transition: .2s;
-    filter:grayscale(100%) brightness(220%);
+
   }
   
   .contact-list a:hover img{
-    filter:grayscale(0%) brightness(100%);
     transition: .2s;
+    filter: grayscale(100%) brightness(120%)
   }

@@ -9,6 +9,6 @@ export default function Footer(props) {
     const classes = useStyles()
     return (<footer className={props.dark ? classes.dark : classes.light}>
                  <Mode setDark={props.setDark} dark={props.dark}/>
-                 <Contacts />
+                 <Contacts dark={props.dark}/>
     </footer>)
 }

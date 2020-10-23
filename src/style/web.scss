@@ -6,8 +6,41 @@
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: start;
+  a {
+    color: #008aff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  h1, h2 {
+    padding: 0px;
+    margin: 0px
+  }
+  .control-header {
+    @media screen and (max-width: 700px) {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      position: relative;
+      .prev {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .header-text {
+        grid-row: 2;
+        grid-column: 1/-1
+      }
+      .next {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+  }
   h1 {
+    font-size: 1rem;
+    text-transform: uppercase
+  }
+  h2 {
     font-family: brevia, sans-serif;
+    text-transform: capitalize
   }
   h3 {
     text-transform: uppercase;
@@ -29,6 +62,27 @@
         position: fixed;
         height: 200px;
       }
+  }
+  .act-button {
+    opacity: 1;
+    background: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #5d5d5d;
+    margin: 10px;
+    &:hover {
+      border-radius: 25px;
+      transition: 0.2s;
+      background: #008aff;
+      color: white;
+    }
   }
   .active-button {
     opacity: 1;
@@ -70,8 +124,9 @@
     display: flex;
     flex-wrap: wrap;
     grid-gap: 10px;
-    a {
+    span {
       width: auto;
+      display: flex;
       max-width: 200px;
       max-height: 200px;
       display: flex;
@@ -80,15 +135,23 @@
       justify-items: center;
       justify-content: center;
       text-decoration: none;
-      border-radius: 5px;
       padding: 10px;
       box-sizing: border-box;
       text-align: center;
       position: relative;
+      cursor: pointer;
+      border-radius: 5px;
+      &:hover {
+        transition: .5s;
+        color: black;
+        padding: 0px;
+        background: rgba(255, 255, 255, 0.4)
+      }
       img {
         width: 100%;
         object-fit: contain;
         height: 100%;
+        border-radius: 5px;
       }
       .alt-show {
         position: absolute;
@@ -125,6 +188,22 @@
     margin: 10px auto;
     border-radius: 10px;
     z-index: 2;
+    padding-top: 30px;
+    .preview-image {
+      margin: 15px;
+      img {
+        width: 100%;
+        max-width: 400px;
+        float: right;
+        border-radius: 5px;
+      }
+      iframe {
+        min-height: 400px;
+        width: 100%;
+        border: 0px;
+        outline: 0px;
+      }
+    }
     .desc-container {
       margin: 10px 0;
     }
@@ -142,7 +221,7 @@
     }
     .top-right {
       position: absolute;
-      top: 20px;
+      top: 5px;
       right: 20px;
       text-align: right;
       p {

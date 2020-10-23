@@ -6,7 +6,7 @@ export const projects = [
     links: {
       install: "https://auth.monday.com/oauth2/authorize?client_id=c402136ecfc3e375135e5002cb9ebaa0&response_type=install",
       openSource: "https://github.com/PepperAddict/Item-Visualizer",
-      demoVideo: "https://youtu.be/579VsWvkZRk"
+      demoVideo: "https://www.youtube.com/embed/579VsWvkZRk"
     },
     tags: ["ReactJS", "HTML", "CSS", "Adobe Photoshop", "Inkscape", "Adobe XD", "Monday API", "Git", "NodeJS", "Puppeteer", "Canvas", "JavaScript", "ES6"],
     description: [
@@ -15,37 +15,37 @@ export const projects = [
     ],
     images: [
       {
-        link: require('../img/vi1.png'),
+        link: require('../img/vi1.webp'),
         alt: "Show the Website section with options for full page and different viewports."
       },
       {
-        link: require('../img/vi2.png'),
+        link: require('../img/vi2.webp'),
         alt: "After entering a URL for Show The Website will take you to the summary."
       },
       {
-        link: require('../img/vi3.png'),
+        link: require('../img/vi3.webp'),
         alt: "Show the Idea with screen capture."
       },
       {
-        link: require('../img/vi4.png'),
+        link: require('../img/vi4.webp'),
         alt: "Show the Video with a screen record"
       },
       {
-        link: require('../img/vi5.png'),
+        link: require('../img/vi5.webp'),
         alt: "The homepage with videos on how to use the app"
       }
     ],
     videos: [
       {
-        link: "https://www.youtube.com/watch?v=AGqnjZ_9UCA",
+        link: "https://www.youtube.com/embed/AGqnjZ_9UCA",
         alt: "Video tutorial on how to use 'Show the Video'"
       },
       {
-        link: "https://www.youtube.com/watch?v=iK_jXmQq0is",
+        link: "https://www.youtube.com/embed/iK_jXmQq0is",
         alt: "Video tutorial on how to use 'Show the Idea'"
       },
       {
-        link: "https://www.youtube.com/watch?v=fGsY3KLNeZM",
+        link: "https://www.youtube.com/embed/fGsY3KLNeZM",
         alt: "Video tutorial on how to use 'Show the Website'"
       }
     ]
@@ -56,7 +56,7 @@ export const projects = [
       install:
         "https://auth.monday.com/oauth2/authorize?client_id=3e39c0dff002278732034237f5771455&response_type=install",
       openSource: "https://github.com/PepperAddict/monday-widget-current-time",
-      demoVideo: "https://www.youtube.com/watch?v=2AD97Lp041c",
+      demoVideo: "https://www.youtube.com/embed/2AD97Lp041c",
     },
     tags: ["ReactJS", "HTML", "CSS", "Monday API", "Git", "Adobe Photoshop", "Adobe XD"],
     description: [
@@ -65,15 +65,15 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/ct2.png"),
+        link: require("../img/ct2.webp"),
         alt: "Monday App in Dashboard Expanded View",
       },
       {
-        link: require("../img/ct3.png"),
+        link: require("../img/ct3.webp"),
         alt: "Screenshot of Monday App Filtered User View",
       },
       {
-        link: require("../img/ct4.png"),
+        link: require("../img/ct4.webp"),
         alt: "Screenshot of Monday App Smaller Resolution View",
       },
     ],
@@ -83,7 +83,7 @@ export const projects = [
     links: {
       openSource:
         "https://github.com/PepperAddict/atlassian-forge-current-time",
-      demoVideo: "https://www.youtube.com/watch?v=i6Xb543cX_0",
+      demoVideo: "https://www.youtube.com/embed/i6Xb543cX_0",
     },
     tags: ["Atlassian Forge API", "CSS", "Git", "Forge CLI"],
     description: [
@@ -95,11 +95,11 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/ct1.jpg"),
+        link: require("../img/ct1.webp"),
         alt: "Screenshot of Jira Issue Sidebar",
       },
       {
-        link: require("../img/ct5.jpg"),
+        link: require("../img/ct5.webp"),
         alt: "Shows Current Time as the winner as the top 100 Forge App",
       },
     ],
@@ -110,7 +110,7 @@ export const projects = [
     links: {
       openSource:
         "https://github.com/PepperAddict/atlassian-connect-mockup-integration",
-      demoVideo: "https://www.youtube.com/watch?v=Nt8UjXpXSSc",
+      demoVideo: "https://www.youtube.com/embed/Nt8UjXpXSSc",
     },
     tags: ["ReactJS", "Git", "CSS", "Inkscape", "Atlassian Connect API", "Figma API"],
     description: [
@@ -119,22 +119,22 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/mu1.jpg"),
+        link: require("../img/mu1.webp"),
         alt:
           "Mockup Integrations with preview on the left and summary on the right plus the ability to write a comment",
       },
       {
-        link: require("../img/mu2.jpg"),
+        link: require("../img/mu2.webp"),
         alt:
           "Summary section of Mockup Integration as well as changing the mockup link",
       },
       {
-        link: require("../img/mu3.jpg"),
+        link: require("../img/mu3.webp"),
         alt:
           "change the owner of the prototype by assigning the correct Jira user",
       },
       {
-        link: require("../img/mu4.jpg"),
+        link: require("../img/mu4.webp"),
         alt:
           "The upload feature in Mockup Integration as well as showing the loading",
       },
@@ -145,7 +145,7 @@ export const projects = [
     links: {
       website: "https://www.talkingcloud.io",
       openSource: "https://github.com/PepperAddict/English_Depict",
-      demoVideo: "https://www.youtube.com/watch?v=a6DHEyp79bE",
+      demoVideo: "https://www.youtube.com/embed/a6DHEyp79bE",
       design:
         "https://xd.adobe.com/view/049b8746-593f-4944-4e76-b47e92c7a8d7-72aa/",
     },
@@ -177,24 +177,24 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/tc1.png"),
+        link: require("../img/tc1.webp"),
         alt: "screenshot of talking cloud's intro page",
       },
       {
-        link: require("../img/tc1m.png"),
+        link: require("../img/tc1m.webp"),
         alt: "screenshot of talking cloud's intro page in mobile",
       },
       {
-        link: require("../img/tc2.png"),
+        link: require("../img/tc2.webp"),
         alt:
           "screenshot of talking cloud's vocabulary section for the dashboard",
       },
       {
-        link: require("../img/tc3.png"),
+        link: require("../img/tc3.webp"),
         alt: "screenshot of talking cloud's login for desktop",
       },
       {
-        link: require("../img/tc3m.png"),
+        link: require("../img/tc3m.webp"),
         alt: "screenshot of talking cloud's login for mobile",
       },
     ],
@@ -219,23 +219,23 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/vfp1.png"),
+        link: require("../img/vfp1.webp"),
         alt: "screenshot of VFPreset's hero section that has a slideshow",
       },
       {
-        link: require("../img/vfp2.png"),
+        link: require("../img/vfp2.webp"),
         alt: "screenshot of VFPreset's section with video popup",
       },
       {
-        link: require("../img/vfp3.png"),
+        link: require("../img/vfp3.webp"),
         alt: "screenshot of VFPreset's Jquery 20/20 plugin with gallery",
       },
       {
-        link: require("../img/vfp4.png"),
+        link: require("../img/vfp4.webp"),
         alt: "screenshot of VFPreset's section with subtle design",
       },
       {
-        link: require("../img/vfp5.png"),
+        link: require("../img/vfp5.webp"),
         alt: "screenshot of VFPreset's pricing section",
       },
     ],
@@ -273,23 +273,23 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/slr1.jpg"),
+        link: require("../img/slr1.webp"),
         alt: "screenshot of old slrlounge homepage",
       },
       {
-        link: require("../img/slr2.png"),
+        link: require("../img/slr2.webp"),
         alt: "screenshot of new slrlounge homepage",
       },
       {
-        link: require("../img/slr3.png"),
+        link: require("../img/slr3.webp"),
         alt: "screenshot of two plugins",
       },
       {
-        link: require("../img/slr4.png"),
+        link: require("../img/slr4.webp"),
         alt: "screenshot of glossary page",
       },
       {
-        link: require("../img/slr5.png"),
+        link: require("../img/slr5.webp"),
         alt: "screenshot of glossary2",
       },
     ],
@@ -306,25 +306,25 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/wo1.png"),
+        link: require("../img/wo1.webp"),
         alt:
           "screenshot of SLRLoungeWorkshop's hero section with video background",
       },
       {
-        link: require("../img/wo2.png"),
+        link: require("../img/wo2.webp"),
         alt:
           "screenshot of SLRLoungeWorkshop's information section for their workshops",
       },
       {
-        link: require("../img/wo3.png"),
+        link: require("../img/wo3.webp"),
         alt: "screenshot of SLRLoungeWorkshop's testimonial section",
       },
       {
-        link: require("../img/wo4.png"),
+        link: require("../img/wo4.webp"),
         alt: "screenshot of SLRLoungeWorkshop's section with image captions",
       },
       {
-        link: require("../img/wo5.png"),
+        link: require("../img/wo5.webp"),
         alt: "screenshot of SLRLoungeWorkshop's pricing section",
       },
     ],
@@ -360,11 +360,11 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/sp1.png"),
+        link: require("../img/sp1.webp"),
         alt: "screenshot of the login page",
       },
       {
-        link: require("../img/sp2.png"),
+        link: require("../img/sp2.webp"),
         alt: "screenshot of loading",
       },
     ],
@@ -392,24 +392,24 @@ export const projects = [
     ],
     images: [
       {
-        link: require("../img/ra1.png"),
+        link: require("../img/ra1.webp"),
         alt: "screenshot of the splash screen",
       },
       {
-        link: require("../img/ra2.png"),
+        link: require("../img/ra2.webp"),
         alt: "Offline capability using service worker",
       },
       {
-        link: require("../img/ra3.png"),
+        link: require("../img/ra3.webp"),
         alt:
           "Screenshot of character selection before entering multiplayer/singleplayer",
       },
       {
-        link: require("../img/ra4.png"),
+        link: require("../img/ra4.webp"),
         alt: "Screenshot of changing name",
       },
       {
-        link: require("../img/ra5.png"),
+        link: require("../img/ra5.webp"),
         alt: "Actual playing mode in single player",
       },
     ],
@@ -422,14 +422,14 @@ export const projects = [
       description: ["A project to practice Flask, Jinja2 and SQLAlchemy by creating an API"],
       tags: ["Python", "Flask", "SQLAlchemy", "HTML", "Jinja2", "SQL", "PostgreSQL", "Heroku", "API"],
       images: [
-          { link: require("../img/py1.png"),
+          { link: require("../img/py1.webp"),
            alt:"Login and Registration system as well as data pull with filtering. "},
            {
-               link: require("../img/py2.png"),
+               link: require("../img/py2.webp"),
                 alt:"Info pull with a commenting system"
            },
            {
-            link: require("../img/py3.png"),
+            link: require("../img/py3.webp"),
              alt:"API creation"
            }
       ]
@@ -443,12 +443,12 @@ export const projects = [
       description: ["A project for pulling up local restaurants to practice using PWA tools such as Service Worker and Promised IndexedDB"],
       images: [
           {
-            link: require("../img/rr1.png"),
+            link: require("../img/rr1.webp"),
              alt:"Google Maps API and filtering by selection"
             
           },
           {
-              link: require("../img/rr2.png"),
+              link: require("../img/rr2.webp"),
                alt:"Data display and commenting system using IndexedDB when offline"
           }
       ]
@@ -463,7 +463,7 @@ export const projects = [
       description: ["An open source group project that gives local data of your location while offline"],
       images: [
           {
-            link: require("../img/map1.png"),
+            link: require("../img/map1.webp"),
             alt:"screenshot of the intro page asking for location permission for google's api"
           }
       ]
