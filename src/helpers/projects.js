@@ -4,6 +4,7 @@ export const projects = [
   {
     name: "Monday Item Visualizer View App",
     links: {
+      website: "https://itemvisualizer.com",
       install: "https://auth.monday.com/oauth2/authorize?client_id=c402136ecfc3e375135e5002cb9ebaa0&response_type=install",
       openSource: "https://github.com/PepperAddict/Item-Visualizer",
       demoVideo: "https://www.youtube.com/embed/579VsWvkZRk"
