@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import './style/nav.scss';
 import { useStyles } from './helpers/lightDark.js'
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 
 export default function Navigation(props) {
   useEffect(() => {
