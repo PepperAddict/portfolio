@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, Fragment } from 'react';
 import { projects } from './helpers/projects.js';
 import './style/web.scss';
 import { useStyles } from './helpers/lightDark.js';
+import ProjNav from './ProjNav';
+import DisplayWeb from './DisplayWeb'
 
 function Image(props) {
     const [hovered, setHovered] = useState(false);
@@ -18,7 +20,7 @@ function Image(props) {
 export default function Web(props) {
     const classes = useStyles();
     const [projt, setProj] = useState(projects);
-    const [num, setNum] = useState(1);
+    const [num, setNum] = useState(0);
     const prev = useRef();
     const next = useRef();
     const [currentImage, setCurrentImage] = useState(null);
@@ -47,6 +49,7 @@ export default function Web(props) {
         console.log(num)
         if (projt.length > num) {
             setNum(num + 1)
+
         }
     }
 
@@ -54,63 +57,41 @@ export default function Web(props) {
         console.log(num)
         if (num > 1) {
             setNum(num - 1)
+
         }
     }
 
     return (
         <div className={(props.dark === true) ? classes.dark + " web-container" : classes.light + " web-container"}>
 
-            {projt.slice(num - 1, num).map((proj, key) => {
-                return <div key={key} id={"project-" + key} className="project-container">
+            <div className="top">
+                <div className="title">
                     <h1>Web Portfolio</h1>
-                    <h2 className="control-header">
-                        <span className={num <= 1 ? 'inactive-button' : 'act-button prev'} ref={prev} onClick={() => prevProj()}>❮</span>
-                        <span className="header-text">{proj.name} </span>
-                        <span className={projt.length <= num ? 'inactive-button' : 'act-button next'} ref={next} onClick={() => nextProj()}>❯</span>
-                    </h2>
-
-
-                    <div className="top-right">
-                        {props.selectedTag && <p><strong>Filtered Tag:</strong> <span className="gold-text">{props.selectedTag}</span></p>}
-                        <button onClick={() => { setNum(1); props.setSelectedTag(null) }}>Reset</button>
-                    </div>
-
-                    <div className="desc-container">
-                        {proj.description.map((desc, key) => <p key={key} dangerouslySetInnerHTML={{ __html: desc }} />)}
-                        <div className="preview-image">
-                            {currentImage && currentImage.type === "video" ? <iframe src={currentImage.link} title={currentImage.alt} /> :
-                                <a href={(currentImage) ? currentImage.link : proj.images[0].link} target="_blank" rel="noopener noreferrer"><img src={(currentImage) ? currentImage.link : proj.images[0].link} alt={(currentImage) ? currentImage.alt: proj.images[0].alt}/></a>
-                            } </div>
-
-                    </div>
-
-                    <div className="links-container">
-                        <h3>Links</h3> {proj.links.install && <a tabIndex="0" href={proj.links.install} target="_blank" rel="noopener noreferrer" >Install App</a>}
-                        {proj.links.website && <a tabIndex="1" href={proj.links.website} target="_blank" rel="noopener noreferrer" >Live Website</a>}
-                        {proj.links.openSource && <a tabIndex="2" href={proj.links.openSource} target="_blank" rel="noopener noreferrer">Open Source</a>}
-                        {proj.links.demoVideo && <a tabIndex="3" href={proj.links.demoVideo} target="_blank" rel="noopener noreferrer">Demo Video</a>}
-                    </div>
-
-                    <div className="tags-container">
-                        <h3>Tags</h3>
-                        <div className="tags">
-                            {proj.tags.sort().map((tag, key) => <span className={(props.selectedTag === tag) ? "active-tag" : "normal-tag"} onClick={() => props.setSelectedTag(tag)} key={key}>{tag}</span>)}
-                        </div>
-                    </div>
-                    <div className="proj-image-container">
-                        <h3>Images:</h3>
-                        <div key={key} className="proj-image">
-
-                            {proj.images.map((image, key) => <Image image={image} key={key} setCurrentImage={setCurrentImage} />)}
-                            {proj.videos && proj.videos.map((vids, key) => <span key={key} onClick={() => setCurrentImage({ link: vids.link, alt: vids.alt, type: "video" })} href={vids.link} target="_blank" rel="noopener noreferrer">{vids.alt}</span>)}
-                        </div>
+                    <div className="arrows">
+                        <span className={num <= 0 ? 'inactive-button' : 'act-button prev'} ref={prev} onClick={() => prevProj()}>❮</span>
+                        <span className={(projt.length - 1) <= num ? 'inactive-button' : 'act-button next'} ref={next} onClick={() => nextProj()}>❯</span>
                     </div>
                 </div>
-            })}
-            {/* <div className="next-prev">
-                <span className={num <= 1 ? 'inactive-button' : 'active-button prev-b'} ref={prev} onClick={() => prevProj()}>❮</span>
-                <span className={projt.length <= num ? 'inactive-button' : 'active-button next-b'} ref={next} onClick={() => nextProj()}>❯</span>
-            </div> */}
+
+                <div className="filter">
+                    <h3>Filter By</h3>
+                    <span>{props.selectedTag}</span>
+                    <select name="skills" id="skills" onChange={e => props.setSelectedTag(e.target.value)}>
+                        <option value="Tags">Tags</option>
+                        <button onClick={() => { setNum(0); props.setSelectedTag(null) }}>Reset</button>
+                        {props.allSkills.map((skill, key) => {
+                            return <option value={skill} key={key}>{skill}</option>
+                        })}
+                    </select>
+
+                </div>
+
+            </div>
+            <div className="main-container">
+                <ProjNav proj={projt} setCurrentProj={setNum} num={num} />
+                <DisplayWeb proj={projt[num]} num={num} projt={projt} selectedTag={props.selectedTag} setSelectedTag={props.setSelectedTag} />
+
+            </div>
 
         </div>)
 }

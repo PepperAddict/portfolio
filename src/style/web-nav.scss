@@ -1,0 +1,37 @@
+@import './_colors.scss';
+
+.proj-nav {
+    position: relative;
+    display: grid; 
+    grid-template-rows: repeat(auto-fill, minmax(50px, auto));
+    &:before {
+        content: ' ';
+        height: 100%;
+        border-left: 1px solid $light-gray;
+        position: absolute;
+        left: 25px;
+    }
+    p {
+        color: $mid-gray;
+        position: relative;
+        padding-left: 15px;
+        display: flex; 
+        align-items: center;
+        align-content: center;
+        cursor: pointer;
+        margin-bottom: 10px;
+        transition: .2s;
+        +.active {
+            color: $mid-gold; 
+        }
+        img {
+            height: 20px;
+            height: 20px;
+            padding-right: 20px;
+        }
+        &:hover {
+            color: black;
+            transition: .2s;
+        }
+    }
+}

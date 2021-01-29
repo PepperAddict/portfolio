@@ -21,7 +21,7 @@ export const useStyles = createUseStyles({
     }
   },
   dark: {
-    '& .project-container, & .art-gallery-container': {
+    '& .web-container, & .art-gallery-container': {
       background: "radial-gradient(rgba(14, 14, 14, 0.9), rgba(14, 14, 14, 0.3))",
       '& .proj-image a': {
         background: "white",
@@ -68,7 +68,10 @@ export const useStyles = createUseStyles({
     },
   },
   light: {
-    '& .project-container, & .art-gallery-container': {
+    background: "radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3))",
+    boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.1)",
+    backdropFilter: "blur(10px)",
+    '& .art-gallery-container': {
       background: "radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3))",
       boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.1)",
       backdropFilter: "blur(10px)",
@@ -79,6 +82,7 @@ export const useStyles = createUseStyles({
       '& .links-container a:hover': {
 
       },
+      
       '& button': {
         background: "radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3))",
         border: "1px solid rgba(255, 255, 255, 0.9)",

@@ -2,7 +2,7 @@
 
 export const projects = [
   {
-    name: "Monday Item Visualizer View App",
+    name: "Monday.com Item Visualizer View App",
     links: {
       website: "https://itemvisualizer.com",
       install: "https://auth.monday.com/oauth2/authorize?client_id=c402136ecfc3e375135e5002cb9ebaa0&response_type=install",
@@ -52,7 +52,7 @@ export const projects = [
     ]
   },
   {
-    name: "Monday Current Time Dashboard App",
+    name: "Monday.com Current Time Dashboard App",
     links: {
       install:
         "https://auth.monday.com/oauth2/authorize?client_id=3e39c0dff002278732034237f5771455&response_type=install",
@@ -354,12 +354,15 @@ export const projects = [
       "Stripe API",
       "Twitter API",
       "Hasura",
+      "Adobe XD"
     ],
     description: [
       "A project for posting to different social media accounts from one single source",
       "I worked closely with another developer as a react/node full stack developer",
     ],
     images: [
+      {link: require('../img/sp3.png'),
+      alt: "Mobile design layout"},
       {
         link: require("../img/sp1.webp"),
         alt: "screenshot of the login page",

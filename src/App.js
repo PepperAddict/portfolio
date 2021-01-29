@@ -64,6 +64,7 @@ export default function App() {
     "PWA",
     "Texture Packer",
   ]);
+  const allSkills = [...languages, ...tools]
 
   return (
     <Router>
@@ -88,6 +89,7 @@ export default function App() {
                   selectedTag={selectedTag}
                   setSelectedTag={setSelectedTag}
                   dark={dark}
+                  allSkills={allSkills}
                 />
               )}
             />
