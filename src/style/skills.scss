@@ -1,8 +1,9 @@
 .skills {
   z-index: 3;
   position: relative;
-
-
+  align-self: start;
+  height: 100%;
+  text-align: left;
   ul {
     margin: 0px;
     padding: 0 0 0 10px;
@@ -10,6 +11,7 @@
     flex-wrap: wrap;
     border-left-style: solid;
     border-left-width: 1px;
+
     @media screen and (max-width: 600px) {
       padding-top: 10px;
       border-top-style: solid;
@@ -24,42 +26,12 @@
       position: relative;
       font-size: 1rem;
       cursor: pointer;
-      transition: .2s;
+      transition: 0.2s;
+      border-width: 1px;
+      border-style: solid;
     }
+  }
 
-    li::before {
-      content: " ";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0px;
-      left: 0px;
-      opacity: 0.2;
-    }
-  }
-  h1 {
-    padding: 0px;
-    margin: 0px;
-    font-size: 1rem;
-    text-align: left;
-    text-transform: uppercase;
-  }
-h2 {
-  text-align: left;
-  font-size: 1.5rem;
-  font-family: brevia, sans-serif;
-  margin: 0px;
-  padding: 0px;
-}
-h3 {
-  font-size: 1rem;
-  font-family: protipo, sans-serif;
-  margin: 0px;
-  text-align: left;
-  padding-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
   h4 {
     display: inline-block;
     padding-right: 10px;
@@ -82,8 +54,11 @@ h3 {
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-    
-    div {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    .skill-content {
+      border-top-width: 1px;
+      border-top-style: solid;
       max-width: 900px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

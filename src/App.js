@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import "./style/header.scss";
 import { useStyles } from './helpers/lightDark.js';
 import {
@@ -24,8 +24,7 @@ export default function App() {
   const classes = useStyles();
 
   const [languages] = useState([
-    "HTML5",
-    "JSX",
+    "HTML",
     "JavaScript",
     "ES6",
     "JQuery",
@@ -36,11 +35,12 @@ export default function App() {
     "NodeJS",
     "Wordpress",
     "ReactJS",
-    "WebGL",
+    "ThreeJS",
     "SQL",
     "GraphQL",
     "MySQL",
     "PostgreSQL",
+    "ExpressJS",
   ]);
 
   const [tools] = useState([
@@ -54,6 +54,7 @@ export default function App() {
     "Buddy CI/CD",
     "Jira",
     "Asana",
+    "Postman",
     "Ontraport",
     "Docker",
     "Blender",

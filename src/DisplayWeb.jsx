@@ -1,17 +1,25 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 
+function Modal({ modal, setModal }) {
+    useEffect(() => {
+        window.scrollTo({top: 0, behavior: 'smooth'})
+    }, [])
 
-function Image(props) {
-    const [hovered, setHovered] = useState(false);
+    return (
+        <div className="modal bg" id="modal">
+            <span className="close bg" onClick={() => setModal(null)}>⮾</span>
+            <div className="main-content">
+                <embed src={modal.link} height={modal.type === 'video' ? '500px' : '100%'} />
+                <span className="description">
+                    {modal.alt}
+                    <span className="close-2" onClick={() => setModal(null)}>close</span>
+                </span>
+            </div>
 
-
-    return <Fragment>
-        <span target="_blank" rel="noopener noreferrer" onClick={() => props.setCurrentImage({ link: props.image.link, type: "image", alt: props.image.alt })} onMouseOver={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-            <img src={props.image.link} alt={props.image.alt} />
-            {hovered && <span className="alt-show">{props.image.alt}</span>}
-        </span>
-    </Fragment>
+        </div>
+    )
 }
+
 export default function DisplayWeb({ num, proj, selectedTag, setSelectedTag }) {
     const [modal, setModal] = useState(null)
     return (
@@ -20,32 +28,42 @@ export default function DisplayWeb({ num, proj, selectedTag, setSelectedTag }) {
                 <span className="header-text">{proj.name} </span>
 
             </h2>
-            <div className="desc-container">
-                {proj.description.map((desc, key) => <p key={key} dangerouslySetInnerHTML={{ __html: desc }} />)}
-
-
-            </div>
-
             <div className="links-container">
-                <h3>Access</h3> {proj.links.install && <a tabIndex="0" href={proj.links.install} target="_blank" rel="noopener noreferrer" >Install App</a>}
-                {proj.links.website && <a tabIndex="1" href={proj.links.website} target="_blank" rel="noopener noreferrer" >Live Website</a>}
-                {proj.links.openSource && <a tabIndex="2" href={proj.links.openSource} target="_blank" rel="noopener noreferrer">Open Source</a>}
+                <h3>Access:</h3> {proj.links.install && <a tabIndex="0" href={proj.links.install} target="_blank" rel="noopener noreferrer" >Install</a>}
+                {proj.links.website && <a tabIndex="1" href={proj.links.website} target="_blank" rel="noopener noreferrer" >Website</a>}
+                {proj.links.openSource && <a tabIndex="2" href={proj.links.openSource} target="_blank" rel="noopener noreferrer">Source Code</a>}
                 {proj.links.demoVideo && <a tabIndex="3" href={proj.links.demoVideo} target="_blank" rel="noopener noreferrer">Demo Video</a>}
+            </div>       
+
+            <div className="container">
+                {proj.description.map((desc, key) => <p key={key} dangerouslySetInnerHTML={{ __html: desc }} />)}
             </div>
 
-            <div className="tags-container">
-                <h3>Tags</h3>
+            <div className="container">
+                <h3>Tags:</h3>
                 <div className="tags">
-                    {proj.tags.sort().map((tag, key) => <span className={(selectedTag === tag) ? "active-tag" : "normal-tag"} onClick={() => setSelectedTag(tag)} key={key}>{tag}</span>)}
+                    {proj.tags.sort().map((tag, key) => <span className={(selectedTag === tag) ? "active tag bg border" : "tag bg border"} onClick={() => setSelectedTag(tag)} key={key}>{tag}</span>)}
                 </div>
             </div>
-            <div className="proj-image-container">
-                <h3>Images:</h3>
-                <div key={num} className="proj-image">
 
-                    {proj.images.map((image, key) => <Image image={image} key={key} setModal={setModal} />)}
-                    {proj.videos && proj.videos.map((vids, key) => <span key={key} onClick={() => setModal({ link: vids.link, alt: vids.alt, type: "video" })} href={vids.link} target="_blank" rel="noopener noreferrer">{vids.alt}</span>)}
+            <div className="container">
+                <h3>Images{proj.videos && ' & Videos'}:</h3>
+                <div key={num} className="proj-image">
+                    {proj.images.map((image, key) => 
+                    <span className="bg border" target="_blank" key={key} rel="noopener noreferrer" onClick={() => setModal({ link: image.link[1], type: "image", alt: image.alt })} >
+                        <img src={image.link[0]} alt={image.alt} />
+                    </span>)}
+                    {proj.videos && proj.videos.map((vids, index) =>
+                    <div className="video" key={index} onClick={() => setModal({ link: vids.link, alt: vids.alt, type: "video" })}>
+
+                        <span className="proj-video bg border" />
+                        <span className="bg border">
+                            {vids.alt}
+                        </span>
+                        </div>)}
                 </div>
+
+                {modal && <Modal modal={modal} setModal={setModal} />}
             </div>
         </div>
     )

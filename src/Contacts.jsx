@@ -1,5 +1,5 @@
 import React from 'react';
-import './style/contacts.scss'
+
 import { useStyles } from './helpers/lightDark.js';
 //icons 
 const gmail = require('./img/gmail.webp');
@@ -12,15 +12,20 @@ const dribbble = require('./img/dribbble.webp');
 export default function Contacts(props) {
     const classes = useStyles();
     return (
-        <div className={(props.dark === true) ? classes.dark + " contact-container": classes.light + " contact-container"}>
-
+        <div className={" contact-container"}>
             <div className="contact-list">
-                <a href="mailto:jenearly@gmail.com">
+                Contact:
+                   <a href="mailto:jenearly@gmail.com">
                     <img src={gmail} alt="contact via email" />
                 </a>
                 <a href="https://www.linkedin.com/in/jenearly/" rel="nofollow noopener noreferrer" target="_blank">
                     <img src={linkedin} alt="contact via linkedin" />
                 </a>
+            </div>
+
+            <div className="contact-list">
+                Follow:
+
                 <a href="https://github.com/PepperAddict"
                     target="_blank" rel="nofollow noopener noreferrer">
                     <img src={github} alt="contact via Github" />

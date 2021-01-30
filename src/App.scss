@@ -6,6 +6,7 @@
   font-family: noto-sans, sans-serif;
 }
 
+
 .App::before {
   content: " ";
   position: fixed;
@@ -15,8 +16,22 @@
   width: 100vw;
   background-size: cover;
 }
-ul {
+ul, p, h1, h2, h3, h4 {
   padding: 0px;
+  margin: 10px 0;
+}
+h1 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+h2 {
+  font-family: brevia, sans-serif;
+  text-transform: capitalize;
+}
+h3 {
+  display: inline-flex;
+  font-size: 1rem;
+
 }
 li {
   list-style: none;
@@ -43,3 +58,14 @@ html {
 #root {
   height: 100%;
 }
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  box-sizing: border-box;
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+
+  }
+} 

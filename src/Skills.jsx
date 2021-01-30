@@ -19,23 +19,23 @@ export default function Skills(props) {
     const classes = useStyles();
 
     return (
-        <div className="skills">
+        <div className={(props.dark == true ) ? classes.dark + " skills": classes.light + ' skills'}>
 
-            <div className={(props.dark === true) ? classes.dark + " skills-container" : (props.dark === false) ? classes.light + ' skills-container' : (leaving) && 'exit'}>
+            <div className="skills-container bg border">
                 <span>
                     <h1>Skills</h1>
                     <h2>Development, tools, and art skills</h2>
                 </span>
-                <div className={(props.dark === true) ? classes.indiDark + " skill-content" : classes.indiLight + " skill-content"}>
+                <div className="skill-content border">
                     <h4>Languages and Frameworks</h4>
-                    <ul>
-                        {props.languages.map((item, key) => <Link key={key} to='/portfolio/web'><li onClick={() => props.setSelectedTag(item)}>{item}</li></Link>)}
+                    <ul className="border">
+                        {props.languages.map((item, key) => <Link key={key} to='/portfolio/web'><li className="border bg border color hoverbg" onClick={() => props.setSelectedTag(item)}>{item}</li></Link>)}
                     </ul>
                 </div>
-                <div className={(props.dark === true) ? classes.indiDark + " skill-content" : classes.indiLight + " skill-content"}>
+                <div className="skill-content border">
                     <h4>Tools and Services</h4>
-                    <ul>
-                        {props.tools.map((item, key) => <Link key={key} to='/portfolio/web'><li onClick={() => props.setSelectedTag(item)}>{item}</li></Link>)}
+                    <ul className="border">
+                        {props.tools.map((item, key) => <Link key={key} to='/portfolio/web'><li className="border bg border color hoverbg" onClick={() => props.setSelectedTag(item)}>{item}</li></Link>)}
                     </ul>
                 </div>
             </div>

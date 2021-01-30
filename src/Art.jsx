@@ -96,8 +96,8 @@ export default function Art(props) {
                     <h2>{fullImage.content.alt}</h2>
                     <p className="desc">{fullImage.content.desc && fullImage.content.desc}</p>
                     <div className="button-container">
-                        <span className="active-button circle-button" onClick={() => nextOrPrev(fullImage.current, false)}>❮</span>
-                        <span className="active-button circle-button" onClick={() => nextOrPrev(fullImage.current, true)}>❯</span>
+                        <span className="active-button bg border circle-button" onClick={() => nextOrPrev(fullImage.current, false)}>❮</span>
+                        <span className="active-button bg border circle-button" onClick={() => nextOrPrev(fullImage.current, true)}>❯</span>
                     </div>
 
                     <nav>

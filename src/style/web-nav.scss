@@ -1,18 +1,24 @@
-@import './_colors.scss';
+
 
 .proj-nav {
     position: relative;
     display: grid; 
+    padding-top: 50px;
+    height: 100%;
+    grid-gap: 5px;
     grid-template-rows: repeat(auto-fill, minmax(50px, auto));
     &:before {
         content: ' ';
         height: 100%;
-        border-left: 1px solid $light-gray;
+        border-left-width: 1px;
+        border-left-style: solid;
         position: absolute;
         left: 25px;
     }
+    strong {
+        color: #DAA520;
+    }
     p {
-        color: $mid-gray;
         position: relative;
         padding-left: 15px;
         display: flex; 
@@ -21,17 +27,18 @@
         cursor: pointer;
         margin-bottom: 10px;
         transition: .2s;
-        +.active {
-            color: $mid-gold; 
-        }
+        letter-spacing: 1px;
         img {
             height: 20px;
             height: 20px;
             padding-right: 20px;
         }
         &:hover {
-            color: black;
+            font-weight: bold;
             transition: .2s;
         }
+    }
+    @media screen and (max-width: 800px) {
+        display: none;
     }
 }
